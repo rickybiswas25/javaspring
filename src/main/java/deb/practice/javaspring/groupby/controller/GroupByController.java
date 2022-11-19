@@ -31,4 +31,10 @@ public class GroupByController {
     public Map<Tuple, List<Movie>> pairGroupBy() {
         return this.service.pairGroupBy();
     }
+
+    @GetMapping("/recordGroupBy")
+    public Map<Movie.MovieTypeRating, List<Movie>> recordGroupBy() {
+        return this.service.recordGroupBy();
+    }
+
 }

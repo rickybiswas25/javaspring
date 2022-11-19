@@ -4,6 +4,7 @@ public class Movie {
     private String title;
     private Genre type;
     private int rating;
+    public record MovieTypeRating(Genre type, int rating) {}
 
     public Movie(String title, Genre type, int rating) {
         this.title = title;

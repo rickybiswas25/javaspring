@@ -33,4 +33,10 @@ public class GroupByServiceImpl implements GroupByService {
         return ALL_MOVIES.stream()
                 .collect(Collectors.groupingBy(movie -> new Tuple(movie.getType(), movie.getRating())));
     }
+
+    @Override
+    public Map<Movie.MovieTypeRating, List<Movie>> recordGroupBy() {
+        return ALL_MOVIES.stream()
+                .collect(Collectors.groupingBy(movie -> new Movie.MovieTypeRating(movie.getType(), movie.getRating())));
+    }
 }

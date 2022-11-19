@@ -11,4 +11,6 @@ public interface GroupByService {
 
     Map<Genre, List<Movie>> simpleGroupBy();
     Map<Tuple, List<Movie>> pairGroupBy();
+
+    Map<Movie.MovieTypeRating, List<Movie>> recordGroupBy();
 }
