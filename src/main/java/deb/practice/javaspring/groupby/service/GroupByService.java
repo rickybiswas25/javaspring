@@ -4,6 +4,7 @@ import deb.practice.javaspring.groupby.model.Movie;
 import deb.practice.javaspring.groupby.model.Genre;
 import deb.practice.javaspring.groupby.model.Tuple;
 
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 
@@ -15,4 +16,6 @@ public interface GroupByService {
     Map<Movie.MovieTypeRating, List<Movie>> recordGroupBy();
 
     Map<Genre, Integer> sumGroupBy();
+
+    Map<Genre, IntSummaryStatistics> summarizeGroupBy();
 }

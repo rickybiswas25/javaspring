@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 
@@ -40,6 +41,11 @@ public class GroupByController {
     @GetMapping("/sumGroupBy")
     public Map<Genre, Integer> sumGroupBy() {
         return this.service.sumGroupBy();
+    }
+
+    @GetMapping("/summarizeGroupBy")
+    public Map<Genre, IntSummaryStatistics> summarizeGroupBy() {
+        return this.service.summarizeGroupBy();
     }
 
 }

@@ -6,6 +6,7 @@ import deb.practice.javaspring.groupby.model.Tuple;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -44,5 +45,11 @@ public class GroupByServiceImpl implements GroupByService {
     public Map<Genre, Integer> sumGroupBy() {
         return ALL_MOVIES.stream()
                 .collect(Collectors.groupingBy(Movie::getType, Collectors.summingInt(Movie::getRating)));
+    }
+
+    @Override
+    public Map<Genre, IntSummaryStatistics> summarizeGroupBy() {
+        return ALL_MOVIES.stream()
+                .collect(Collectors.groupingBy(Movie::getType, Collectors.summarizingInt(Movie::getRating)));
     }
 }
