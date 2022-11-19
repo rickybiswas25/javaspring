@@ -2,6 +2,7 @@ package deb.practice.javaspring.groupby.controller;
 
 import deb.practice.javaspring.groupby.model.Movie;
 import deb.practice.javaspring.groupby.model.Genre;
+import deb.practice.javaspring.groupby.model.Tuple;
 import deb.practice.javaspring.groupby.service.GroupByService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,5 +25,10 @@ public class GroupByController {
     @GetMapping("/simpleGrouping")
     public Map<Genre, List<Movie>> simpleGrouping() {
         return this.service.simpleGroupBy();
+    }
+
+    @GetMapping("/pairGroupBy")
+    public Map<Tuple, List<Movie>> pairGroupBy() {
+        return this.service.pairGroupBy();
     }
 }

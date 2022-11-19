@@ -3,10 +3,12 @@ package deb.practice.javaspring.groupby.model;
 public class Movie {
     private String title;
     private Genre type;
+    private int rating;
 
-    public Movie(String title, Genre type) {
+    public Movie(String title, Genre type, int rating) {
         this.title = title;
         this.type = type;
+        this.rating = rating;
     }
 
     public String getTitle() {
@@ -23,5 +25,13 @@ public class Movie {
 
     public void setType(Genre type) {
         this.type = type;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }

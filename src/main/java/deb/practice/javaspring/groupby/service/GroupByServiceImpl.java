@@ -2,6 +2,7 @@ package deb.practice.javaspring.groupby.service;
 
 import deb.practice.javaspring.groupby.model.Movie;
 import deb.practice.javaspring.groupby.model.Genre;
+import deb.practice.javaspring.groupby.model.Tuple;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -12,18 +13,24 @@ import java.util.stream.Collectors;
 @Service("groupBy")
 public class GroupByServiceImpl implements GroupByService {
     private static final List<Movie> ALL_MOVIES = List.of(
-            new Movie("365 Days", Genre.DRAMA),
-            new Movie("After", Genre.DRAMA),
-            new Movie("2 Hearts", Genre.DRAMA),
-            new Movie("The lost city", Genre.ADVENTURE),
-            new Movie("Moon fall", Genre.ADVENTURE),
-            new Movie("Don't worry darling", Genre.MYSTERY),
-            new Movie("The little things", Genre.MYSTERY)
+            new Movie("365 Days", Genre.DRAMA, 3),
+            new Movie("After", Genre.DRAMA, 2),
+            new Movie("2 Hearts", Genre.DRAMA, 2),
+            new Movie("The lost city", Genre.ADVENTURE, 4),
+            new Movie("Moon fall", Genre.ADVENTURE, 4),
+            new Movie("Don't worry darling", Genre.MYSTERY, 3),
+            new Movie("The little things", Genre.MYSTERY, 5)
     );
 
     @Override
     public Map<Genre, List<Movie>> simpleGroupBy() {
         return ALL_MOVIES.stream()
                 .collect(Collectors.groupingBy(Movie::getType));
+    }
+
+    @Override
+    public Map<Tuple, List<Movie>> pairGroupBy() {
+        return ALL_MOVIES.stream()
+                .collect(Collectors.groupingBy(movie -> new Tuple(movie.getType(), movie.getRating())));
     }
 }
