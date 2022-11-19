@@ -37,4 +37,9 @@ public class GroupByController {
         return this.service.recordGroupBy();
     }
 
+    @GetMapping("/sumGroupBy")
+    public Map<Genre, Integer> sumGroupBy() {
+        return this.service.sumGroupBy();
+    }
+
 }

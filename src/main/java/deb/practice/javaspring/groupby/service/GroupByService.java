@@ -13,4 +13,6 @@ public interface GroupByService {
     Map<Tuple, List<Movie>> pairGroupBy();
 
     Map<Movie.MovieTypeRating, List<Movie>> recordGroupBy();
+
+    Map<Genre, Integer> sumGroupBy();
 }

@@ -39,4 +39,10 @@ public class GroupByServiceImpl implements GroupByService {
         return ALL_MOVIES.stream()
                 .collect(Collectors.groupingBy(movie -> new Movie.MovieTypeRating(movie.getType(), movie.getRating())));
     }
+
+    @Override
+    public Map<Genre, Integer> sumGroupBy() {
+        return ALL_MOVIES.stream()
+                .collect(Collectors.groupingBy(Movie::getType, Collectors.summingInt(Movie::getRating)));
+    }
 }
